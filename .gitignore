@@ -1,0 +1,10 @@
+# Database config (contains credentials - do not commit)
+configi.php
+
+# Claude Code settings
+.claude/
+
+# Temp/lock files
+reference/~$ebsite.docx
+*.tmp
+*.log
