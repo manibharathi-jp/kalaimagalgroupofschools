@@ -720,139 +720,370 @@ include 'header.php';
 
 
 
-<!-- Enquiry Floating Button -->
-<button class="enquiry-float-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" title="Enquire Now">
-    <i class="fas fa-envelope"></i> Enquire Now
-</button>
+<!-- Enquiry Pop-up Modal -->
+<div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg enq-modal-dialog">
+        <div class="modal-content enq-modal-content">
 
-<!-- Enquiry Modal -->
-<div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border-radius:14px; overflow:hidden;">
-            <div class="modal-header" style="background:#1F4FB2; color:#fff; border-bottom:none;">
-                <h5 class="modal-title" id="enquiryModalLabel">
-                    <i class="fas fa-school me-2"></i> School Enquiry Form
-                </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- Left Panel -->
+            <div class="enq-left-panel">
+                <button type="button" class="enq-close-mobile" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="enq-left-inner">
+                    <img src="img/logo (2).png" alt="School Logo" class="enq-logo">
+                    <h2 class="enq-school-name">Kalaimagal Matric. Hr. Sec. School</h2>
+                    <p class="enq-tagline">"Love &bull; Learn &bull; Sacrifice"</p>
+                    <div class="enq-divider"></div>
+                    <ul class="enq-features">
+                        <li><i class="fas fa-check-circle"></i> Admissions Open 2026–27</li>
+                        <li><i class="fas fa-check-circle"></i> 100% Board Results</li>
+                        <li><i class="fas fa-check-circle"></i> KG to Grade 12</li>
+                        <li><i class="fas fa-check-circle"></i> Est. Since 1986</li>
+                    </ul>
+                    <img src="reference/front.jpg" alt="Campus" class="enq-campus-img">
+                </div>
             </div>
-            <div class="modal-body p-4">
-                <div id="enq-alert" class="alert d-none" role="alert"></div>
-                <form id="enquiryForm" novalidate>
-                    <div class="mb-3">
-                        <label for="enq_name" class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="enq_name" name="enq_name"
-                               placeholder="Enter your full name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="enq_email" class="form-label fw-semibold">Email Address <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" id="enq_email" name="enq_email"
-                               placeholder="Enter your email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="enq_phone" class="form-label fw-semibold">Phone Number <span class="text-danger">*</span></label>
-                        <input type="tel" class="form-control" id="enq_phone" name="enq_phone"
-                               placeholder="10-digit mobile number" maxlength="10" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="enq_grade" class="form-label fw-semibold">Grade Interested <span class="text-danger">*</span></label>
-                        <select class="form-select" id="enq_grade" name="enq_grade" required>
-                            <option value="">-- Select Grade --</option>
-                            <option value="KG">KG (Kindergarten)</option>
-                            <option value="Grade 1">Grade 1</option>
-                            <option value="Grade 2">Grade 2</option>
-                            <option value="Grade 3">Grade 3</option>
-                            <option value="Grade 4">Grade 4</option>
-                            <option value="Grade 5">Grade 5</option>
-                            <option value="Grade 6">Grade 6</option>
-                            <option value="Grade 7">Grade 7</option>
-                            <option value="Grade 8">Grade 8</option>
-                            <option value="Grade 9">Grade 9</option>
-                            <option value="Grade 10">Grade 10 (SSLC)</option>
-                            <option value="Grade 11">Grade 11</option>
-                            <option value="Grade 12">Grade 12 (HSC)</option>
-                        </select>
-                    </div>
-                    <div class="d-grid mt-4">
-                        <button type="submit" class="btn enq-submit-btn" id="enqSubmitBtn">
-                            <i class="fas fa-paper-plane me-1"></i> Submit Enquiry
+
+            <!-- Right Panel -->
+            <div class="enq-right-panel">
+                <button type="button" class="enq-close-desktop" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="enq-right-inner">
+                    <p class="enq-form-sub">Fill in your details and we'll get back to you shortly.</p>
+                    <h4 class="enq-form-title">Quick Enquiry</h4>
+
+                    <div id="enq-alert" class="alert d-none" role="alert"></div>
+
+                    <form id="enquiryForm" novalidate>
+                        <div class="enq-field">
+                            <label for="enq_name"><i class="fas fa-user"></i> Full Name <span>*</span></label>
+                            <input type="text" id="enq_name" name="enq_name" placeholder="Your full name" required>
+                        </div>
+                        <div class="enq-field">
+                            <label for="enq_email"><i class="fas fa-envelope"></i> Email Address <span>*</span></label>
+                            <input type="email" id="enq_email" name="enq_email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="enq-field">
+                            <label for="enq_phone"><i class="fas fa-phone"></i> Phone Number <span>*</span></label>
+                            <input type="tel" id="enq_phone" name="enq_phone" placeholder="10-digit mobile number" maxlength="10" required>
+                        </div>
+                        <div class="enq-field">
+                            <label for="enq_grade"><i class="fas fa-graduation-cap"></i> Grade Interested <span>*</span></label>
+                            <select id="enq_grade" name="enq_grade" required>
+                                <option value="">-- Select Grade --</option>
+                                <option value="KG">KG (Kindergarten)</option>
+                                <option value="Grade 1">Grade 1</option>
+                                <option value="Grade 2">Grade 2</option>
+                                <option value="Grade 3">Grade 3</option>
+                                <option value="Grade 4">Grade 4</option>
+                                <option value="Grade 5">Grade 5</option>
+                                <option value="Grade 6">Grade 6</option>
+                                <option value="Grade 7">Grade 7</option>
+                                <option value="Grade 8">Grade 8</option>
+                                <option value="Grade 9">Grade 9</option>
+                                <option value="Grade 10">Grade 10 (SSLC)</option>
+                                <option value="Grade 11">Grade 11</option>
+                                <option value="Grade 12">Grade 12 (HSC)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="enq-submit-btn" id="enqSubmitBtn">
+                            <i class="fas fa-paper-plane me-2"></i> Submit Enquiry
                         </button>
-                    </div>
-                </form>
+                        <p class="enq-skip" data-bs-dismiss="modal">No thanks, I'll enquire later</p>
+                    </form>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
 
 <style>
-.enquiry-float-btn {
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    background: #ffaa00;
-    color: #000;
+/* ── Modal wrapper ── */
+.enq-modal-dialog {
+    max-width: 820px;
+}
+.enq-modal-content {
+    display: flex;
+    flex-direction: row;
     border: none;
-    padding: 12px 18px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(255, 170, 0, 0.45);
-    z-index: 9998;
-    transition: 0.3s ease;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.22);
+    min-height: 500px;
+}
+
+/* ── Left panel ── */
+.enq-left-panel {
+    width: 42%;
+    background: linear-gradient(160deg, #1F4FB2 0%, #0d2d6e 100%);
+    color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.enq-left-inner {
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.enq-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    padding: 6px;
+    margin-bottom: 14px;
+}
+.enq-school-name {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+.enq-tagline {
+    font-size: 12px;
+    color: #ffcc66;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+.enq-divider {
+    width: 40px;
+    height: 3px;
+    background: #ffaa00;
+    border-radius: 2px;
+    margin-bottom: 18px;
+}
+.enq-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+.enq-features li {
+    font-size: 13px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 8px;
 }
-.enquiry-float-btn:hover {
-    background: #e69900;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(255, 170, 0, 0.5);
+.enq-features li i {
+    color: #ffaa00;
+    font-size: 14px;
+    flex-shrink: 0;
 }
-.enq-submit-btn {
-    background: #1F4FB2;
-    color: #fff;
+.enq-campus-img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: auto;
+    opacity: 0.88;
+}
+
+/* ── Right panel ── */
+.enq-right-panel {
+    width: 58%;
+    background: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.enq-right-inner {
+    padding: 36px 32px 28px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.enq-form-sub {
+    font-size: 12px;
+    color: #ffaa00;
     font-weight: 600;
-    padding: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+.enq-form-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 20px;
+}
+
+/* ── Fields ── */
+.enq-field {
+    margin-bottom: 14px;
+}
+.enq-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.enq-field label i {
+    color: #1F4FB2;
+    margin-right: 5px;
+}
+.enq-field label span {
+    color: #e74c3c;
+}
+.enq-field input,
+.enq-field select {
+    width: 100%;
+    border: 1.5px solid #e0e0e0;
     border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #333;
+    background: #f9f9fc;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: auto;
+}
+.enq-field input:focus,
+.enq-field select:focus {
+    border-color: #1F4FB2;
+    box-shadow: 0 0 0 3px rgba(31,79,178,0.1);
+    background: #fff;
+}
+
+/* ── Submit button ── */
+.enq-submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #1F4FB2, #1565c0);
+    color: #fff;
     border: none;
+    border-radius: 9px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
     transition: 0.3s;
+    letter-spacing: 0.3px;
 }
 .enq-submit-btn:hover {
-    background: #163a8a;
+    background: linear-gradient(135deg, #163a8a, #0d47a1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(31,79,178,0.35);
+}
+
+/* ── Skip link ── */
+.enq-skip {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 12px;
+    margin-bottom: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.enq-skip:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+/* ── Close buttons ── */
+.enq-close-desktop {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: #f0f0f5;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 10;
+}
+.enq-close-desktop:hover {
+    background: #e74c3c;
     color: #fff;
+}
+.enq-close-mobile {
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* ── Responsive ── */
+@media (max-width: 650px) {
+    .enq-modal-dialog { max-width: 96vw; }
+    .enq-modal-content { flex-direction: column; }
+    .enq-left-panel { width: 100%; min-height: unset; }
+    .enq-left-inner { padding: 24px 20px 16px; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .enq-logo { width: 50px; height: 50px; margin-bottom: 0; }
+    .enq-school-name { font-size: 13px; }
+    .enq-features, .enq-campus-img, .enq-divider { display: none; }
+    .enq-right-panel { width: 100%; }
+    .enq-right-inner { padding: 20px; }
+    .enq-close-mobile { display: flex; }
+    .enq-close-desktop { display: none; }
 }
 </style>
 
 <script>
+/* Auto-show modal on page load after 1.5s */
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+        var enquiryModal = new bootstrap.Modal(document.getElementById('enquiryModal'));
+        enquiryModal.show();
+    }, 1500);
+});
+
+/* Form submission */
 document.getElementById('enquiryForm').addEventListener('submit', function(e) {
     e.preventDefault();
     var btn = document.getElementById('enqSubmitBtn');
-    var alert = document.getElementById('enq-alert');
+    var alertBox = document.getElementById('enq-alert');
     btn.disabled = true;
-    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Submitting...';
-    alert.className = 'alert d-none';
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Submitting...';
+    alertBox.className = 'alert d-none';
 
-    var formData = new FormData(this);
-    fetch('enquiry_handler.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-        alert.className = 'alert ' + (data.success ? 'alert-success' : 'alert-danger');
-        alert.textContent = data.message;
-        if (data.success) {
-            document.getElementById('enquiryForm').reset();
-        }
-    })
-    .catch(function() {
-        alert.className = 'alert alert-danger';
-        alert.textContent = 'Network error. Please try again.';
-    })
-    .finally(function() {
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-paper-plane me-1"></i> Submit Enquiry';
-    });
+    fetch('enquiry_handler.php', { method: 'POST', body: new FormData(this) })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+            alertBox.className = 'alert ' + (data.success ? 'alert-success' : 'alert-danger');
+            alertBox.textContent = data.message;
+            if (data.success) {
+                document.getElementById('enquiryForm').reset();
+                setTimeout(function() {
+                    bootstrap.Modal.getInstance(document.getElementById('enquiryModal')).hide();
+                }, 2500);
+            }
+        })
+        .catch(function() {
+            alertBox.className = 'alert alert-danger';
+            alertBox.textContent = 'Network error. Please try again.';
+        })
+        .finally(function() {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-paper-plane me-2"></i> Submit Enquiry';
+        });
 });
 </script>
 
