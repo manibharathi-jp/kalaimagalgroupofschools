@@ -110,10 +110,10 @@ include 'header.php';
   </div>
 
 
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
       <span class="carousel-control-prev-icon"></span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
       <span class="carousel-control-next-icon"></span>
     </a>
 </div>
