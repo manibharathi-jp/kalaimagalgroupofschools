@@ -89,7 +89,7 @@ include 'header.php';
 
   <div class="carousel-inner">
     <?php
-    $qry = "SELECT * FROM banners WHERE status = '0'";
+    $qry = "SELECT * FROM banners WHERE status = '1'";
     $result = $mysqli->query($qry);
     $i = 0;
 
